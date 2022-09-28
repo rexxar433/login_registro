@@ -16,9 +16,4 @@ public class RegistroControlador {
         return "PaginaPrincipal";
     }
 
-
-    @GetMapping("/PaginaAdmin")
-    public String VerPaginaDeAdmin() {
-        return "PaginaAdmin";
-    }
 }
