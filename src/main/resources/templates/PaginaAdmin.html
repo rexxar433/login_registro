@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head th:replace="layout/layout :: head">
+<meta charset="utf-8">
+</head>
+<body>
+
+	<header th:replace="layout/layout :: header"></header>
+
+	<div class="py-4 ml-5 mr-5">
+		<div class="card bg-light">
+			<div class="card-header" th:text="${titulo}"></div>
+	
+				<table class="table table-striped">
+					<thead>
+						<tr>
+              <th>ID</th>
+              <th>Usuario</th>
+              <th>Primer Nombre</th>
+              <th>Segundo Nombre</th>
+              <th>Primer Apellido</th>
+              <th>Segundo Apellido</th>
+              <th>Fecha de nacimiento</th>
+              <th>Edad</th>
+              <th>Correo Electronico</th>
+              <th>Contraseña</th>
+
+              <th >Editar</th>
+							<th >Eliminar</th>
+            
+
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="usuario : ${usuarios}">
+							<td th:text="${usuario.id}"></td>
+							<td th:text="${usuario.usuarioS}"></td>
+							<td th:text="${usuario.Primernombre}"></td>
+							<td th:text="${usuario.Segundonombre}"></td>
+							<td th:text="${usuario.Primerapellido}"></td>
+							<td th:text="${usuario.Segundoapellido}"></td>
+							<td th:text="${usuario.FechaDeNacimiento}"></td>
+							<td th:text="${usuario.Edad}"></td>
+              <td th:text="${usuario.email}"></td>
+              <td th:text="${usuario.password}"></td>
+
+
+							<td ><a class="btn btn-warning btn-sm"
+								th:href="@{/form/} + ${usuario.id}">Editar</a></td>
+							<td> 
+								<a class="btn btn-danger btn-sm"
+								th:href="@{/eliminar/} + ${usuario.id}"
+								onclick="return confirm('¿Estás seguro de eliminar el usuario?');">Eliminar</a></td>
+						</tr>
+					</tbody>
+				</table>
+				
+			</div>
+		</div>
+	</div>
+
+	<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>
+          
+          
+

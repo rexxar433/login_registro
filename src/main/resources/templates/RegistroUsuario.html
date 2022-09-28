@@ -1,0 +1,156 @@
+<!doctype html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+     
+<head th:fragment="head">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title th:text="${Registrate}"></title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+  <link rel="icon" type="image/x-icon" href="img\Icono.jpg">
+  <link rel="stylesheet" href="css/Registro.css">
+</head>
+
+<body class="bg-dark">
+  <header>
+    <nav id="header" class="navbar navbar-expand-lg bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand text-Intro" href="#">
+          <img src="img\Icono.jpg">PeliReview
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link text-Pag" aria-current="page" th:href="@{/PaginaPrincipal} " >Página Principal</a>
+                
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-Inicio" th:href="@{/PaginaIniciosesion}" >Iniciar Sesión</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+
+
+
+  </header>
+  <main>
+    <div class="container mt-4">
+      
+    
+      <div class="row mb-3">
+        <div class="col text-center">
+        
+          <div th:if=${param.exito}>
+            <div class="alert alert-info">Se ha registrado exitosamente a
+              la aplicación
+            </div>
+          </div>
+        
+          <h1> Registrate a PeliReview</h1>
+          
+        </div>
+      </div>
+      
+      
+      <div class="row mb-3">
+        <div class="col text-center text-white">
+          <small> Únete a la comunidad más crítica y apasionada del cine.</small>
+        </div>
+      </div>
+      
+     
+      <div class="row mb-3">
+
+<!--Formulario-->
+        <form class="bg-info p-3 rounded-2" action="" method="post" >
+        <form th:action="@{/RegistroUsuario}" method="post" th:object="${usuarioS}">
+          
+          <div class="text-center">
+            <div class="row align-items-start">
+              <div class="col mb-3">
+                <input th:field="*{usuarioS}" id="usuarioS" type="text" placeholder="Nombre de Usuario" name="nombre" class="form-control"
+                  autocomplete="none" required />
+              </div>
+              <div class="col mb-3">
+                <input th:field="*{Primernombre}" id="Primernombre" type="text" placeholder="Primer Nombre" name="nombre1" class="form-control" autocomplete="none"
+                  required />
+              </div>
+              <div class="col">
+                <input th:field="*{Segundonombre}" id="Segundonombre" type="text" placeholder="Segundo Nombre" name="nombre2" class="form-control">
+              </div>
+            </div>
+            <div class="row align-items-center">
+              <div class="col mb-3">
+                <input th:field="*{Primerapellido}" id="Primerapellido" type="text" placeholder="Primer Apellido" name="apellido1" class="form-control" autocomplete=none
+                  required />
+              </div>
+              <div class="col mb-3">
+                <input th:field="*{Segundoapellido}" id="Segundoapellido" type="text" placeholder="Segundo Apellido" name="apellido2" class="form-control">
+              </div>
+              <div class="col mb-3">
+                <input th:field="*{FechaDeNacimiento}" id="FechaDeNacimiento" type="text" placeholder="Fecha de Nacimiento" name="nacimiento" class="form-control" onfocus="(this.type='date')">
+   
+              </div>
+            </div>
+            <div class="row align-items-end">
+              <div class="col mb-3">
+                <input th:field="*{Edad}" id="Edad" type="value" placeholder="Edad" name="edad" class="form-control" autocomplete=none />
+              </div>
+              <div class="col mb-3">
+                <input th:field="*{email}" id="email" type="text" placeholder="Correo Electrònico" name="correo" class="form-control" autocomplete=none
+                  required />
+              </div>
+              <div class="col mb-3">
+                <input th:field="*{password}" id="password" type="password" placeholder="Contraseña" name="pass" class="form-control" autocomplete=none
+                  required />
+              </div>
+            </div>
+            <div class="row align-items-end">
+              <div class="col mb-3">
+                <input type="password" placeholder="Confirma contraseña" name="repass" class="form-control"
+                  autocomplete=none required />
+              </div>
+              <div class="col">
+              </div>
+              <div class="col">
+              </div>
+            </div>
+          </div>
+          <!--Button-->
+          <div class="text-center">
+            <button type="submit" class="btn btn-danger btn-lg" >Registrarse</button>
+          </div>
+        
+        
+        </form>
+       </form>
+            <div class="row">
+                <img src="img/Cinta2.png" width="100%">
+         
+            
+        </div>
+      
+      
+      </div>
+    
+    </div>
+  
+  
+  </main>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+          crossorigin="anonymous"></script>
+</body>
+
+</html>
