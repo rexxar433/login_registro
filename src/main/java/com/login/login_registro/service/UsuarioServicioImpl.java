@@ -2,7 +2,7 @@ package com.login.login_registro.service;
 
 import java.util.Arrays;
 import java.util.Collection;
-
+import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,8 +63,19 @@ public class UsuarioServicioImpl implements UsuarioServicio {
 
     
 
-    
+    @Override
+    public List<Usuario> getAllUsuarios() {
+        return usuarioRepositorio.findAll();
+    }
 
+
+    @Override
+    public Usuario getUsuarioById(Long id) {
+        return usuarioRepositorio.findById(id).get();
+
+
+        
+    }
 
     
     
